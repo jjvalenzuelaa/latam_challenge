@@ -31,7 +31,7 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
             tweets_por_fecha[fecha] += 1
 
             # obtengo el usuario del tweet actual
-            usuario = tweet['user']['displayname']
+            usuario = tweet['user']['username']
             # incremento el contador de tweets para el usuario actual en la fecha actual
             usuario_mas_publicaciones_por_fecha[fecha][usuario] += 1
 
@@ -53,3 +53,13 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
         resultados.append((fecha, usuario_mas_publicaciones))
 
     return resultados
+#Defino la ruta del archivo en una variable
+file_path = r'c:\Software\latam_challenge\farmers-protest-tweets-2021-2-4.json'
+
+# Llamo a la función con la ruta del archivo JSON
+resultados = q1_memory(file_path)
+
+# Muestro los resultados
+print('Top 10 fechas con más tweets y usuarios con más publicaciones en dichas fechas')
+for fecha, usuario in resultados:
+    print(f'Fecha: {fecha}, Usuario con más publicaciones: {usuario}')
