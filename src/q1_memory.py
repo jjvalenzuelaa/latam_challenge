@@ -31,7 +31,7 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
             tweets_por_fecha[fecha] += 1
 
             # obtengo el usuario del tweet actual
-            usuario = tweet['user']['displayname']
+            usuario = tweet['user']['username']
             # incremento el contador de tweets para el usuario actual en la fecha actual
             usuario_mas_publicaciones_por_fecha[fecha][usuario] += 1
 
